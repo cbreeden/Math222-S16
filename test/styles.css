@@ -1,0 +1,183 @@
+    /*ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }*/
+
+    em {
+        font-weight: bold;
+    }
+
+
+    body {
+        background: #FFF
+    }
+
+    table, table td {
+        font : 16px/1.1 Arial;
+    }
+
+
+    #pageWrapper {
+        font: 14px/1.4 Arial;
+        width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+        background: #FFF
+    }
+
+    li {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    /* Index Page Stuff */
+    #header {
+        line-spacing: 0em;
+        padding-bottom: 10px;
+    }
+
+    #header h1 {
+        -webkit-margin-after: 0.1em;
+    }
+
+    #contact {
+        overflow: hidden;
+    }
+
+    #contact table {
+        /*border: 1px solid black;*/
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #contact th {
+        text-align: left;
+        padding-right: 20px;
+    }
+
+    #contact td {
+        padding-right: 40px;
+        text-align: left;
+    }
+
+    #materials {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    #materials th, #materials td {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    #grade-dist {
+        border-collapse: collapse;
+        margin-left: 30px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    #grade-dist th {
+        text-align: center;
+    }
+
+    #grade-dist td, #grade-dist th {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #grade-scale {
+        border: 1px solid black;
+        border-collapse: collapse;
+        float:right;
+        margin-left: 30px;
+        margin-top: 20px;
+    }
+
+    #grade-scale td, #grade-scale th {
+        border: 1px solid black;
+        text-align: center;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    section h2 {
+        background: #BBB;
+        padding-left: 5px;
+    }
+    section h3 {
+        display: inline;
+    }
+
+    /* Lectures.html Stuff */
+    .ol1 {
+        list-style-type: none;
+        padding-left: 0px;
+        margin: 0;
+    }
+
+    .ul1 {
+        margin: 0;
+        padding-left: 0px;
+    }
+
+    .li1 {
+        font-weight: bolder !important;
+        padding: 0 !important;
+        background: #EEE;
+        text-align: right;
+    }
+
+    .ol1 b {
+        color: red;
+    }
+
+    .li3 {
+        list-style-type: none;
+        padding-left: 20px;
+    }
+
+    /* exams.html stuff */
+    #schedule table {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #schedule th, #schedule td {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    #schedule th {
+        text-align: center;
+    }
+
+    #prev th, #prev td {
+        padding-bottom: 1em;
+        vertical-align: top;
+    }
+
+    /* Homework.html stuff */
+    #hw {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .hw-head {
+        font-weight: bolder !important;
+        padding: 0 !important;
+        background: #EEE
+    }
+
+    #hw li {
+        padding-left: 25px;
+    }
+
+    #hw .due {
+        float: right;
+    }
+
