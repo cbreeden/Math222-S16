@@ -1,183 +1,247 @@
-    /*ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }*/
+* {
+   font-family: 'Droid Serif', serif;
+}
 
-    em {
-        font-weight: bold;
-    }
+em {
+   font-weight: bold;
+}
+
+body {
+   background: #FFF;
+}
+
+table,
+table td {
+   font-size: 16px;
+   line-height: 1.2em;
+}
+
+#pageWrapper {
+   font-size: 14px;
+   line-height: 1.4em;
+   width: 720px;
+   margin-left: auto;
+   margin-right: auto;
+   background: #FFF
+}
+
+li {
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
 
 
-    body {
-        background: #FFF
-    }
+/* Index Page Stuff */
 
-    table, table td {
-        font : 16px/1.1 Arial;
-    }
+#header {
+   padding-bottom: 10px;
+}
+
+#header::after {
+   display: block;
+   content: "";
+   clear: both;
+}
+
+#title-wrap {
+   position: relative;
+   height: 42px;
+}
+
+#header #title {
+   margin-bottom: 0;
+}
+
+#shared-office {
+   margin-left: auto;
+   margin-right: auto;
+   border-collapse: collapse;
+}
+
+#shared-office td {
+   border: 1px solid black;
+   text-align: center;
+   padding: 10px;
+}
+
+#shared-office td:nth-child(1) {
+   text-align: left;
+   padding-right: 20px;
+}
+
+#shared-office tr:nth-of-type(even) {
+   background: #e5e5e5;
+}
+
+#shared-office tbody tr:first-child td:first-child {
+   border-top: none;
+   border-left: none;
+}
 
 
-    #pageWrapper {
-        font: 14px/1.4 Arial;
-        width: 720px;
-        margin-left: auto;
-        margin-right: auto;
-        background: #FFF
-    }
+#contact {
+   overflow: hidden;
+}
 
-    li {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
+#contact table {
+   /*border: 1px solid black;*/
+   margin-left: auto;
+   margin-right: auto;
+}
 
-    /* Index Page Stuff */
-    #header {
-        line-spacing: 0em;
-        padding-bottom: 10px;
-    }
+#contact th {
+   text-align: left;
+   padding-right: 20px;
+}
 
-    #header h1 {
-        -webkit-margin-after: 0.1em;
-    }
+#contact td {
+   padding-right: 20px;
+   text-align: left;
+}
 
-    #contact {
-        overflow: hidden;
-    }
+#materials {
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
 
-    #contact table {
-        /*border: 1px solid black;*/
-        margin-left: auto;
-        margin-right: auto;
-    }
+#materials th,
+#materials td {
+   padding-left: 15px;
+   padding-right: 15px;
+}
 
-    #contact th {
-        text-align: left;
-        padding-right: 20px;
-    }
+#worksheets-tbl {
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
 
-    #contact td {
-        padding-right: 40px;
-        text-align: left;
-    }
+#worksheets-tbl th,
+#worksheets-tbl td {
+   padding-left: 25px;
+   padding-right: 25px;
+   padding-top: 10px;
+}
 
-    #materials {
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
+#grade-dist {
+   border-collapse: collapse;
+   margin-left: 30px;
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
 
-    #materials th, #materials td {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
+#grade-dist th {
+   text-align: center;
+}
 
-    #grade-dist {
-        border-collapse: collapse;
-        margin-left: 30px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
+#grade-dist td,
+#grade-dist th {
+   padding-left: 10px;
+   padding-right: 10px;
+}
 
-    #grade-dist th {
-        text-align: center;
-    }
+#grade-scale {
+   border: 1px solid black;
+   border-collapse: collapse;
+   float: right;
+   margin-left: 30px;
+   margin-top: 20px;
+}
 
-    #grade-dist td, #grade-dist th {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+#grade-scale td,
+#grade-scale th {
+   border: 1px solid black;
+   text-align: center;
+   padding-left: 10px;
+   padding-right: 10px;
+}
 
-    #grade-scale {
-        border: 1px solid black;
-        border-collapse: collapse;
-        float:right;
-        margin-left: 30px;
-        margin-top: 20px;
-    }
+section h2 {
+   background: #BBB;
+   padding-left: 5px;
+   line-height: 1.5em;
+}
 
-    #grade-scale td, #grade-scale th {
-        border: 1px solid black;
-        text-align: center;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+section h3 {
+   display: inline;
+}
 
-    section h2 {
-        background: #BBB;
-        padding-left: 5px;
-    }
-    section h3 {
-        display: inline;
-    }
 
-    /* Lectures.html Stuff */
-    .ol1 {
-        list-style-type: none;
-        padding-left: 0px;
-        margin: 0;
-    }
+/* Lectures.html Stuff */
 
-    .ul1 {
-        margin: 0;
-        padding-left: 0px;
-    }
+.ol1 {
+   list-style-type: none;
+   padding-left: 0px;
+   margin: 0;
+}
 
-    .li1 {
-        font-weight: bolder !important;
-        padding: 0 !important;
-        background: #EEE;
-        text-align: right;
-    }
+.ul1 {
+   margin: 0;
+   padding-left: 0px;
+}
 
-    .ol1 b {
-        color: red;
-    }
+.li1 {
+   font-weight: bolder !important;
+   padding: 0 !important;
+   background: #EEE;
+   text-align: right;
+}
 
-    .li3 {
-        list-style-type: none;
-        padding-left: 20px;
-    }
+.ol1 b {
+   color: red;
+}
 
-    /* exams.html stuff */
-    #schedule table {
-        margin-left: auto;
-        margin-right: auto;
-    }
+.li3 {
+   list-style-type: none;
+   padding-left: 20px;
+}
 
-    #schedule th, #schedule td {
-        padding-left: 30px;
-        padding-right: 30px;
-    }
 
-    #schedule th {
-        text-align: center;
-    }
+/* exams.html stuff */
 
-    #prev th, #prev td {
-        padding-bottom: 1em;
-        vertical-align: top;
-    }
+#schedule table {
+   margin-left: auto;
+   margin-right: auto;
+}
 
-    /* Homework.html stuff */
-    #hw {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
+#schedule th,
+#schedule td {
+   padding-left: 30px;
+   padding-right: 30px;
+}
 
-    .hw-head {
-        font-weight: bolder !important;
-        padding: 0 !important;
-        background: #EEE
-    }
+#schedule th {
+   text-align: center;
+}
 
-    #hw li {
-        padding-left: 25px;
-    }
+#prev th,
+#prev td {
+   padding-bottom: 1em;
+   vertical-align: top;
+}
 
-    #hw .due {
-        float: right;
-    }
 
+/* Homework.html stuff */
+
+#hw {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+}
+
+.hw-head {
+   font-weight: bolder !important;
+   padding: 0 !important;
+   background: #EEE
+}
+
+#hw li {
+   padding-left: 25px;
+}
+
+#hw .due {
+   float: right;
+}
