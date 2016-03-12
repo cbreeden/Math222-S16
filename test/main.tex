@@ -1,0 +1,310 @@
+\documentclass[paper=letter]{article}
+\usepackage{worksheet}
+
+\school{Madison College}
+\course{Trigonometry}
+\title{Section 4.5}
+\subtitle{Harmonic Motions}
+
+\usepackage{wrapfig}
+\usepackage{mathtools}
+\usepackage{tabu,booktabs}
+\usepackage{colortbl}
+
+\usepackage{pgfplots}
+\usetikzlibrary {datavisualization.formats.functions,decorations.pathmorphing,patterns}
+
+\def\nicefrac#1#2{% 
+	\raise.5ex\hbox{$#1$}%
+	\kern-.05em/\kern-.0em%
+	\lower.4ex\hbox{$#2$}}
+
+\def\graphNoTable#1{
+	\begin{center}
+		\begin{tikzpicture}[plot/.style={very thick,raw gnuplot,mark=none,black}]
+		\begin{axis}[
+		grid style={line width=.1pt, draw=gray!80},%
+		major grid style={line width=.3pt,draw=black!85},
+ 		minor y tick num=4,
+		minor x tick num =2,
+		xtick={-6.28318531, -4.71238898, -3.14159265, -1.57079633,  0.,
+ 		       1.57079633,  3.14159265,  4.71238898,  6.28318531},
+		xticklabels={$-2\pi$,$-\frac{3\pi}{2}$,$-\pi$,$-\frac{\pi}{2}$,%
+		  			$0$,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$,$2\pi$},
+		extra x ticks={0}, extra x tick labels={},
+		extra y ticks={0}, extra y tick labels={},
+		extra x tick style={very thick, draw=black},
+		width=\textwidth,
+		xmin=-6.5, xmax=6.5,
+		ymin=-#1, ymax=#1,
+		grid=both, height=0.9\textwidth,
+		axis y line=left,
+		axis x line=bottom
+		]
+		\addplot gnuplot [plot, thin, black!50] { plot [-6.5:6.5] 0; }; % prevent empty range error :\
+		\end{axis}\end{tikzpicture}
+	\end{center}
+}
+
+\newcommand{\hf}{\hspace*{\fill}}
+
+\begin{document}
+\maketitle
+
+\section*{Simple Harmonic Motions}
+
+Simple harmonic motion occurs when an object is moving under the influence of a force whose strength is proportional to the distance the object has moved from its rest position, and that always points toward the rest position.  Mathematically, we can write this out as a formula $F = -kx$.  As we increase the distance an object moves from the position of rest, $x$, then the greater the force, $F$.  The negative sign says that the force of the spring will point in the opposite direction of the displacement of the mass from the point of rest.
+
+\begin{center}
+\begin{tikzpicture}
+	\node[circle,fill=blue,inner sep=2.5mm] (a) at (0,0) {};
+	\node[circle,fill=blue,inner sep=2.5mm] (b) at (2,1) {};
+	\node[circle,fill=blue,inner sep=2.5mm] (c) at (4.2,2) {};
+    \node[circle,fill=blue,inner sep=2.5mm] (l) at (-4.2,2) {};
+    
+    \draw[domain=-6:9, smooth, variable=\x,gray] plot({\x},{-cos(3/4*180*\x/3.14159) + 1});
+
+	\draw[decoration={aspect=0.3, segment length=3mm, amplitude=3mm,coil},decorate] (0,5) -- (a); 
+	\draw[decoration={aspect=0.3, segment length=2.25mm, amplitude=3mm, coil}, decorate] (2,5) -- (b);
+	\draw[decoration={aspect=0.3, segment length=1.5mm, amplitude=3mm,coil},decorate] (4.2,5) -- (c);
+    \draw[decoration={aspect=0.3, segment length=1.5mm, amplitude=3mm,coil},decorate] (-4.2,5) -- (l);
+	
+	\fill [pattern = north east lines] (-0.7,5) rectangle (0.7,5.2);
+  	\draw[thick] (-0.7,5) -- (0.7,5);
+    \fill [pattern = north east lines] (1.3,5)  rectangle (2.7,5.2);
+	\draw[thick] (1.3,5) -- (2.7,5);
+	\fill [pattern = north east lines] (3.5,5)  rectangle (4.9,5.2);
+	\draw[thick] (3.5,5) -- (4.9,5);
+
+	\fill [pattern = north east lines] (-3.5,5)  rectangle (-4.9,5.2);
+	\draw[thick] (-3.5,5) -- (-4.9,5);
+
+	\draw[<-, dashed, very thick] (b) -- (5.5,1) node [right] {Rest};
+	\draw[dashed, very thick] (a) -- (5.5, 0);
+	\draw[dashed, very thick] (c) -- (5.5, 2);
+	
+	\draw[dashed, thick, <->] (5,2) -- (5, 1) node [midway, right] { $a$ = Amplitude };
+	\draw[dashed, thick, <->] (5,1) -- (5, 0) node [midway, right] { $-a$ };
+    
+    \draw[thick] (-4.2,-1) -- (4.2,-1) node [midway, below] { 1 Period };
+    \draw[thick] (-4.2,-0.5) -- (-4.2,-1);
+    \draw[thick] (4.2,-0.5) -- (4.2,-1);
+\end{tikzpicture}
+\end{center}
+	
+\begin{itemize}
+	\item When the mass is not moving the spring is in a state of \emph{rest}.
+	\item If the mass is pulled down or pushed up from this rest position by a distance of $a$, it will bounce up and down after it is released.
+	\item The amplitude of oscillatory motion of the mass bouncing up and down will be $|a|$.
+	\item The time it takes for one full oscillation is called the \textbf{period}.  The period is the time for one cycle, and is often labeled as $T$.  $T$ is usually measured in seconds.
+	\item The frequency is how many complete oscillations, or cycles, occur per unit time.  That is how frequent and oscillation occurs.  Frequency of often labeld as $f$ and is often measured in cycles per second.  This unit of measurement, cycles per second, is called Hertz.
+	\item The reciprocal of frequency is seconds per cycle which is the period.
+	\item The angular frequency of the oscillation is frequently labeled $\omega$, and is used to convert from the "regular" frequency measured in cycles per second to a measure in radians per second so that we can model the oscillation using sine or cosine as a function of time.
+	\item The bouncing would continue forever if it weren't for friction, air drag, etc.
+\end{itemize}
+
+\newpage
+
+\Prob Supposed that an object is attached to a coiled spring.  It is puled down a distance of 16 cm form its equilibrium position and then released.  The time it takes for one complete oscillation is 6 seconds.\vspace{0.5cm}
+
+\subprob Calculate the amplitude, period, and frequency for which the object oscillates.\vfill
+
+\subprob Give an equation that models the position of the object at time $t$.\vfill
+
+\subprob Determine the position of the object after 1 minute.\vfill
+
+\subprob Graph the position of the object over time for two periods.\vspace{0.5cm}
+
+\hfill%
+\begin{minipage}{0.6\textwidth}
+\begin{center}
+\begin{tikzpicture}[plot/.style={very thick,raw gnuplot,mark=none,black}]
+	\begin{axis}[
+	grid style={line width=.1pt, draw=gray!80},%
+	major grid style={line width=.3pt,draw=black!85},
+ 		minor y tick num=4,
+	minor x tick num =4,
+	extra x ticks={0}, extra x tick labels={},
+	extra y ticks={0}, extra y tick labels={},
+	extra x tick style={very thick, draw=black},
+	width=\textwidth,
+	xmin=-3, xmax=10,
+	ymin=-20, ymax=20,
+	grid=both, height=0.9\textwidth,
+	axis y line=left,
+	axis x line=bottom
+	]
+	\addplot gnuplot [plot, thin, black!85] { plot [-3:10] 0; }; % prevent empty range error :\
+\end{axis}\end{tikzpicture}
+\end{center}
+\end{minipage}
+
+%\begin{tabu} to 0.7\linewidth{| X[1,c] | X[1,c] |}
+%	\text{frequency} & $f = \dfrac{\text{Cycles}}{\text{Second}}$ \\
+%	\text{Peroid} & $T = \dfrac{\text{Seconds}}{\text{Cycle}}$ \\
+%	$f = \dfrac{1}{T}$ & $T = \dfrac{1}{f}$
+%\end{tabu}
+
+\newpage
+
+\Prob A weight attached to a spring is pulled down 2 in. below the equilibrium position. \vspace{0.5cm}
+
+\subprob Assuming that the frequency is $\frac{6}{\pi}$ cycles per sec, determine a model (equation) that gives the postion of the weight at time $t$ seconds.\vspace{4cm}
+
+\subprob What is the frequency?\vspace{4cm}
+
+\subprob Graph the position of the object over time for two periods.  Label the graph with the units you are using.\vspace{0.5cm}
+
+\hfill%
+\begin{minipage}{0.6\textwidth}
+\begin{center}
+\begin{tikzpicture}[plot/.style={very thick,raw gnuplot,mark=none,black}]
+	\begin{axis}[
+	grid style={line width=.1pt, draw=gray!80},%
+	major grid style={line width=.3pt,draw=black!85},
+ 		minor y tick num=4,
+	minor x tick num =4,
+	extra x ticks={0}, extra x tick labels={},
+	extra y ticks={0}, extra y tick labels={},
+	extra x tick style={very thick, draw=black},
+	width=\textwidth,
+	xmin=-3, xmax=10,
+	xlabel={$t$ seconds},
+	ylabel={$y$ cm},
+	ymin=-20, ymax=20,
+	grid=both, height=0.9\textwidth,
+	axis y line=left,
+	axis x line=bottom
+	]
+	\addplot gnuplot [plot, thin, black!85] { plot [-3:10] 0; }; % prevent empty range error :\
+\end{axis}\end{tikzpicture}
+\end{center}
+\end{minipage}
+
+
+
+\section*{Dampled Oscillatory Motions}
+
+\vspace{1cm}
+
+\begin{center}
+\begin{minipage}{0.9\textwidth}
+\begin{tikzpicture}[plot/.style={very thick,raw gnuplot,mark=none,black}]
+	\begin{axis}[
+	grid style={line width=.1pt, draw=gray!80},%
+	major grid style={line width=.3pt,draw=black!85},
+ 		minor y tick num=0,
+	minor x tick num =0,
+	extra x ticks={0}, extra x tick labels={},
+	extra y ticks={0}, extra y tick labels={},
+	extra x tick style={very thick, draw=black},
+	width=\textwidth,
+	xmin=0, xmax=4,
+	ymin=-2, ymax=2,
+	grid=both, height=0.9\textwidth,
+	axis y line=left,
+	axis x line=bottom
+	]
+	\addplot gnuplot [plot,red, samples=1000, smooth, restrict y to domain=-20:20] {
+        set angles radians;
+        plot [0:4] exp(-x)*sin(10*x);
+    };
+    \addplot gnuplot [plot, dashed, gray, samples=100, smooth] {
+    	plot[0:4] exp(-x);
+    }node [pos=0.2, anchor=south, yshift=0.1cm, xshift=0.1cm] {\LARGE $e^{-t}$};
+    \addplot gnuplot [plot, gray, dashed, samples=100, smooth] {
+    	plot[0:4] -exp(-x);
+    } node [pos=0.2, anchor=north, xshift = 0.1cm] {\LARGE $-e^{-t}$};
+    \addplot gnuplot [plot, dashed, gray, samples=100, smooth] {
+    	set angles radians;
+    	plot[0:4] sin(10*x);
+    };
+    %\draw[<-] (A) -- ($(A) ++ (0.5,0.5)$) node [right] {Hi};
+\end{axis}\end{tikzpicture}
+\end{minipage}
+\end{center}
+
+\vfill
+
+\newpage
+
+\section*{Fundamental Identities}
+
+\tikzstyle{mybox} = [draw, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+\tikzstyle{fancytitle}=[fill=white, rounded corners]
+
+
+\begin{center}
+\begin{tikzpicture}
+\node [mybox] (box){%
+    \begin{minipage}{0.80\textwidth}
+    	{\centering\Large \textbf{Reciprocoal Identities}\vspace{0.2cm}\par}
+   		\large\hf%
+   		   $\cot \theta = \dfrac{1}{\tan \theta}$\hf%
+   		   $\sec \theta = \dfrac{1}{\cos \theta}$\hf%
+    	   $\csc \theta = \dfrac{1}{\sin \theta}$\hf
+		    	
+		\rule{\textwidth}{0.2pt}
+		
+    	{\centering\Large \textbf{Quotient Identities}\vspace{0.2cm}\par}
+   		\large\hf%
+    	   $\tan \theta = \dfrac{\sin \theta}{\cos \theta}$\hf%
+      	   $\cot \theta = \dfrac{\cos \theta}{\sin \theta}$\hf
+
+		\rule{\linewidth}{0.2pt}
+    	  
+    	{\centering\Large \textbf{Pythagorean Identities}\vspace{0.2cm}\par}
+    	\large\hf%
+    	   $\sin^2(\theta) + \cos^2(\theta) = 1 \hf%
+    	    \tan^2(\theta) + 1 = \sec^2(\theta) \hf%
+    	    1 + \cot^2(\theta) = \csc^2(\theta) \hf$
+	
+		\rule{\linewidth}{0.2pt}
+
+       {\centering\Large \textbf{Negative Angle Identities}\par}
+	   \vspace{-0.4cm}\begin{align*}
+	   		\sin(-\theta) &= -\sin(\theta)&%
+    	    \tan(-\theta) &= -\tan(\theta)&%
+    	    \sec(-\theta) &= \sec(\theta)\\    	    
+    	    \cos(-\theta) &= \cos(\theta)&%
+    	    \cot(-\theta) &= -\cot(\theta)&%
+    	    \csc(-\theta) &= -\csc(\theta)
+    	\end{align*}
+
+		\vspace{-0.2cm}\rule{\linewidth}{0.2pt}    	
+    	
+    	{\centering\Large \textbf{Complementary Identities}\par}
+    	\vspace{-0.4cm}\begin{align*}
+    		\cos(\theta) &= \sin\left(\frac{\pi}{2} - \theta\right)&%
+    		\cot(\theta) &= \tan\left(\frac{\pi}{2} - \theta\right)&%
+    		\csc(\theta) &= \sec\left(\frac{\pi}{2} - \theta\right)
+    	\end{align*}
+    \end{minipage}
+};
+\node[fancytitle, right=10pt] at (box.north west) {\LARGE Funamental Identities};
+\end{tikzpicture}\end{center}\vspace{1cm}%
+
+\prob Given $\cos \theta = \dfrac{5}{8}$ and $\theta$ is in quadrant IV, find $\sin \theta$ and $\tan \theta$.
+
+\newpage
+\section*{Writing a Trig Function in Terms of Another}
+
+\prob Write $\tan x$ in terms of $\cos x$.\vfill
+
+\prob Write $\cot x$ in terms of $\sin x$.\vfill
+
+\prob Write $\sec x$ in terms of $\sin x$.\vfill
+
+\newpage
+\section*{Rewriting in Terms of Sine and Cosine}
+
+Write each expression in terms of sine and cosine, and simplify so that no quotients appear in the final expression, and so that all your functions are of $\theta$ only.  Ie, don't leave $-\theta$ in any of your arguments.\\
+
+\prob $\dfrac{1 + \tan^2 \theta}{1 - \sec^2 \theta}$\vfill
+
+\prob $\left(1 + \cos(-\theta)\right)\left(1 + \sin(\theta)\right)$\vfill
+
+\prob $\dfrac{1 - \sin^2\left(-\theta\right)}{1 + \cot^2\left(-\theta\right)}$\vfill
+
+\end{document}
